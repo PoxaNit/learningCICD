@@ -18,6 +18,8 @@
         runs-on: ubuntu-latest
         steps:
 
+          - name: Execute php output
+
           run: |
             echo 'Test from PHP Process'
             echo 'test2'
