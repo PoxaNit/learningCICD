@@ -14,7 +14,7 @@
 
       echo-test:
 
-        name: Echo Test
+        name: Testing echo, env variables
         runs-on: ubuntu-latest
         steps:
 
@@ -22,7 +22,10 @@
 
             run: |
                 echo "shell used: ${SHELL}";
-                echo teste2
+                echo "user name: ${USERNAME}"
 
             shell: bash
 
+            env:
+
+              USERNAME: 'Júlio César'
