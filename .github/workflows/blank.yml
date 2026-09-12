@@ -21,8 +21,8 @@
           - name: Execute php output
 
             run: |
-              <?php
-                echo 'Test from PHP Process'; ?>
+                echo 'Test from PHP Process';
+                echo teste2
 
             shell: bash
 
