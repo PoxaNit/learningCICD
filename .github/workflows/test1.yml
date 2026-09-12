@@ -1,5 +1,5 @@
 
-  name: Test Workflow
+  name: Test1 Workflow
 
   on:
 
@@ -18,10 +18,10 @@
         runs-on: ubuntu-latest
         steps:
 
-          - name: Execute php output
+          - name: Sends output
 
             run: |
-                echo 'Test from PHP Process';
+                echo "shell used: ${SHELL}";
                 echo teste2
 
             shell: bash
