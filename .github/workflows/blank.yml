@@ -20,9 +20,9 @@
 
           - name: Execute php output
 
-          run: |
+          - run: |
             echo 'Test from PHP Process'
             echo 'test2'
 
-          shell: php
+          - shell: php
 
