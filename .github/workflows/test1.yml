@@ -54,3 +54,37 @@
 
             run: |
               echo 'finished!'
+
+    testing-wait-background-steps:
+
+      name: testing waiting for background steps
+
+      runs-on: ubuntu-latest
+
+      steps:
+
+        - name: step1
+
+          shell: bash
+
+          run: |
+            sleep 20
+
+          background: true
+
+
+        - name: step2
+
+          shell: bash
+
+          run: |
+            echo 'step2 executed'
+
+
+        - name: step3
+
+          shell: bash
+
+          run: echo step3 executed
+
+          wait: [step1]
