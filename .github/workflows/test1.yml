@@ -81,10 +81,11 @@
               echo 'step2 executed'
 
 
+          wait: [step1]
+
+
           - name: step3
 
             shell: bash
 
             run: echo step3 executed
-
-            wait: [step1]
