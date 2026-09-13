@@ -65,6 +65,8 @@
 
           - name: step1
 
+            id: step1
+
             shell: bash
 
             run: |
