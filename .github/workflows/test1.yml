@@ -43,7 +43,7 @@
             shell: bash
 
             run: |
-              wait 10
+              sleep 10
 
             background: false
 
