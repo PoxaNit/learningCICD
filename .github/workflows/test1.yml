@@ -14,7 +14,7 @@
 
       echo-test:
 
-        name: Testing echo, env variables
+        name: Testing env variables
         runs-on: ubuntu-latest
         steps:
 
@@ -29,3 +29,28 @@
             env:
 
               USERNAME: 'Júlio César'
+
+    testing-background:
+
+      name: Testing Background
+
+      runs-on: ubuntu-latest
+
+      steps:
+
+        - name: step1
+
+          shell: bash
+
+          run: |
+            wait 10
+
+          background: false
+
+
+        - name: step2
+
+          shell: bash
+
+          run: |
+            echo 'finished!'
