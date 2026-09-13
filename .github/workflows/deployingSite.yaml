@@ -22,14 +22,6 @@ jobs:
     steps:
 
 
-      - name: checking credentials
-
-        shell: bash
-
-        run: echo "credentials: ${CREDENTIALS}"
-
-
-
       - name: prepare-git-enviroment
 
         shell: bash
@@ -60,4 +52,4 @@ jobs:
 
         shell: bash
 
-        run: lftp "open -u ${CREDENTIALS} ftpupload.net; cd htdocs; mirror --exclude-glob .git/ -R . ."
+        run: lftp -c "open -u ${CREDENTIALS} ftpupload.net; cd htdocs; mirror --exclude-glob .git/ -R . ."
