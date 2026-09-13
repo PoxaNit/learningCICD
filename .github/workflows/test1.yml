@@ -1,4 +1,4 @@
- 
+
   name: 'Test1 Workflow'
 
   on:
@@ -55,36 +55,36 @@
             run: |
               echo 'finished!'
 
-    testing-wait-background-steps:
+      testing-wait-background-steps:
 
-      name: testing waiting for background steps
+        name: testing waiting for background steps
 
-      runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-      steps:
+        steps:
 
-        - name: step1
+          - name: step1
 
-          shell: bash
+            shell: bash
 
-          run: |
-            sleep 20
+            run: |
+              sleep 20
 
-          background: true
-
-
-        - name: step2
-
-          shell: bash
-
-          run: |
-            echo 'step2 executed'
+            background: true
 
 
-        - name: step3
+          - name: step2
 
-          shell: bash
+            shell: bash
 
-          run: echo step3 executed
+            run: |
+              echo 'step2 executed'
 
-          wait: [step1]
+
+          - name: step3
+
+            shell: bash
+
+            run: echo step3 executed
+
+            wait: [step1]
