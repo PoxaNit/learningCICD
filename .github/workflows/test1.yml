@@ -1,4 +1,4 @@
- 
+
   name: 'Test1 Workflow'
 
   on:
@@ -45,7 +45,7 @@
             run: |
               sleep 10
 
-            background: false
+            background: true
 
 
           - name: step2
