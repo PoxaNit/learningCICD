@@ -81,7 +81,9 @@
               echo 'step2 executed'
 
 
-          wait: [step1]
+          - name: wait step
+
+            wait: [step1]
 
 
           - name: step3
