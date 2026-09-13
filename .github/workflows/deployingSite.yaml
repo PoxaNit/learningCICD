@@ -1,8 +1,10 @@
 name: deploy workflow
 
-on: [push]
+on:
 
-  branches: [master]
+  push:
+
+    branches: [master]
 
 jobs:
 
@@ -24,8 +26,6 @@ jobs:
         shell: bash
 
         run: |
-          mkdir project
-          cd project
           git init
           git remote add origin https://github.com/PoxaNit/learningCICD
 
@@ -43,7 +43,7 @@ jobs:
 
         shell: bash
 
-        run: apt install lftp -y
+        run: sudo apt install lftp -y
 
 
 
