@@ -21,6 +21,14 @@ jobs:
     steps:
 
 
+      - name: checking credentials
+
+        shell: bash
+
+        run: [[ $CREDENTIALS != '' ]] && echo "valid credentials"
+
+
+
       - name: prepare-git-enviroment
 
         shell: bash
