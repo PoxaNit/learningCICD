@@ -1,0 +1,54 @@
+name: deploy workflow
+
+on: [push]
+
+  branches: [master]
+
+jobs:
+
+  deployment:
+
+    name: deployment job
+
+    runs-on: ubuntu-latest
+
+    env:
+
+      CREDENTIALS: ${{ secrets.CREDENTIALS }} # contains user name and password for connection with host via ftp
+
+    steps:
+
+
+      - name: prepare-git-enviroment
+
+        shell: bash
+
+        run: |
+          mkdir project
+          cd project
+          git init
+          git remote add origin https://github.com/PoxaNit/learningCICD
+
+
+
+      - name: git-pull-project
+
+        shell: bash
+
+        run: git pull origin master
+
+
+
+      - name: Installing-LFTP
+
+        shell: bash
+
+        run: apt install lftp -y
+
+
+
+      - name: deploy-project
+
+        shell: bash
+
+        run: lftp "open -u ${CREDENTIALS} ftpupload.net; cd htdocs; mirror --exclude-glob .git/ -R . ."
