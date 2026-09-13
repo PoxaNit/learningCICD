@@ -30,27 +30,27 @@
 
               USERNAME: 'Júlio César'
 
-    testing-background:
+      testing-background:
 
-      name: Testing Background
+        name: Testing Background
 
-      runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-      steps:
+        steps:
 
-        - name: step1
+          - name: step1
 
-          shell: bash
+            shell: bash
 
-          run: |
-            wait 10
+            run: |
+              wait 10
 
-          background: false
+            background: false
 
 
-        - name: step2
+          - name: step2
 
-          shell: bash
+            shell: bash
 
-          run: |
-            echo 'finished!'
+            run: |
+              echo 'finished!'
