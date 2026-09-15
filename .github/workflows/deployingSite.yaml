@@ -22,7 +22,7 @@ jobs:
     steps:
 
 
-      - name: prepare-git-enviroment
+      - name: Prepare Git Enviroment
 
         shell: bash
 
@@ -32,24 +32,36 @@ jobs:
 
 
 
-      - name: git-pull-project
+      - name: Run Git Pull
 
         shell: bash
 
         run: git pull origin master
 
 
-
-      - name: Installing-LFTP
+      - name: Installing LFTP
 
         shell: bash
 
         run: sudo apt install lftp -y
 
 
-
-      - name: deploy-project
+      - name: Run Tests
 
         shell: bash
 
-        run: lftp -c "open -u ${CREDENTIALS} ftpupload.net; cd htdocs; mirror --exclude-glob .git/ -R . ."
+        run: ./test.sh
+
+
+      - name: Run Build
+
+        shell: bash
+
+        run: [[ $? -eq 0 ]] && ./buld.sh
+
+
+      - name: Deploy Project
+
+        shell: bash
+
+        run: [[ $? -eq 0 ]] && lftp -c "open -u ${CREDENTIALS} ftpupload.net; cd htdocs; mirror --exclude-glob .git/ -R . ."
