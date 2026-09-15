@@ -57,11 +57,11 @@ jobs:
 
         shell: bash
 
-        run: [[ $? -eq 0 ]] && ./buld.sh
+        run: ./buld.sh
 
 
       - name: Deploy Project
 
         shell: bash
 
-        run: [[ $? -eq 0 ]] && lftp -c "open -u ${CREDENTIALS} ftpupload.net; cd htdocs; mirror --exclude-glob .git/ -R . ."
+        run: lftp -c "open -u ${CREDENTIALS} ftpupload.net; cd htdocs; mirror --exclude-glob .git/ -R . ."
